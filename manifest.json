@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Gotify Fox",
+  "version": "0.1",
+
+  "description": "Send messages to a gotify server",
+
+  "icons": {
+    "64": "/assets/images/icon.png"
+  },
+  "background": {
+    "scripts": ["/vendor/jquery/jquery-3.5.0.js", "background.js"]
+  },
+  "options_ui": {
+    "page": "settings/settings.html",
+    "browser_style": false
+  },
+  "permissions": ["storage", "tabs", "http://*/*", "https://*/*"],
+  "browser_action": {
+    "default_icon": "/assets/images/icon.png",
+    "default_title": "Gotify Fox",
+    "default_popup": "popup/popup.html",
+    "browser_style": true
+  }
+}

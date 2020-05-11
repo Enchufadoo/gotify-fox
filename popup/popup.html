@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gotify Fox</title>
+    <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../vendor/fork-awesome/css/fork-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../vendor/fork-awesome/css/font-awesome-animation.min.css"
+    />
+  </head>
+  <body>
+    <div class="popup-body">
+      <div class="d-flex justify-content-between">
+        <div>
+          <div class="lead">Gotify Fox</div>
+        </div>
+        <div>
+          <!-- <a class="link-menu" href="../templates/templates.html"
+            ><span class="fa fa-list"> </span> Templates</a
+          > -->
+          <!-- <span class="h-separator"> / </span> -->
+          <a class="link-menu" href="../settings/settings.html"
+            ><span class="fa fa-cog"> </span> Settings</a
+          >
+        </div>
+      </div>
+      <div id="settingsMissing" class="hide">
+        <div>
+          <div class="text-center">
+            Server settings need to be configured.
+          </div>
+          <br />
+          <div class="text-center">
+            <a href="../settings/settings.html" class="btn btn-primary"
+              >Server Settings</a
+            >
+          </div>
+        </div>
+      </div>
+      <div id="messageArea" class="hide">
+        <form>
+          <div class="form-group">
+            <label for="inputTitle">Message Title</label>
+            <input
+              type="text"
+              placeholder="Custom message title"
+              class="form-control"
+              id="inputTitle"
+              aria-describedby="titleHelp"
+            />
+            <small id="titleHelp" class="form-text text-muted"
+              >Message title is required.</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="inputContent">Message Content</label>
+            <input
+              type="text"
+              placeholder="Custom message content"
+              class="form-control"
+              id="inputContent"
+              aria-describedby="contentHelp"
+            />
+            <small id="contentHelp" class="form-text text-muted"
+              >Message content is required.</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="selectPriority">Message Priority</label>
+            <select class="form-control" id="selectPriority">
+              <option>0</option>
+              <option selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+            <small id="priorityHelp" class="form-text text-muted"
+              >Message priority.</small
+            >
+          </div>
+          <button id="buttonSend" type="submit" class="btn btn-primary">
+            <span id="spanSend"
+              ><i class="fa fa-send" aria-hidden="true"></i> Send Message
+            </span>
+            <span id="spanSending" class="hide">
+              <i class="fa fa-spinner faa-spin animated" aria-hidden="true"></i>
+              Sending
+            </span>
+          </button>
+          <div id="errorMessage" class="hide">
+            <div class="alert alert-danger">
+              <b>
+                <span class="fa fa-warning"></span> Error sending the message
+              </b>
+              <div id="descErrorMessage"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../vendor/seemple/seemple.js"></script>
+    <script src="../vendor/jquery/jquery-3.5.0.js"></script>
+    <script src="../vendor/popper/popper.js"></script>
+    <script src="../vendor/bootstrap/bootstrap.bundle.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
