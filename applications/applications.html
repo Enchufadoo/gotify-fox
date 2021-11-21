@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gotify Fox Settings</title>
+    <link rel="stylesheet" href="applications.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../vendor/fork-awesome/css/fork-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../vendor/fork-awesome/css/font-awesome-animation.min.css"
+    />
+  </head>
+  <body>
+    <div class="popup-body">
+      <div class="d-flex justify-content-between">
+        <div class="mb-2">
+          <p class="lead"> 
+            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+            <span id="popupTitle">Add a New Application</span>  
+          </p>
+        </div>
+        <div id="contLinkGoBack">
+          <a class="link-menu" href="../manage_applications/manage_applications.html" id="buttonGoBack"
+            ><span class="fa fa-arrow-left"> </span> Go Back</a
+          >
+        </div>
+      </div>
+      <form>       
+        <div class="form-group">
+          <label for="inputTitle">Gotify Server URL</label>
+          <input
+            type="text"
+            placeholder="Server Address"
+            class="form-control"
+            id="inputServerUrl"
+            aria-describedby="serverUrlHelp"
+          />
+          <small id="serverUrlHelp" class="form-text text-muted"
+            >Server address is required, including http:// or https://.</small
+          >
+        </div>
+        <div class="form-group">
+          <label for="inputToken">Token</label>
+          <input
+            type="text"
+            placeholder="Private token for this app"
+            class="form-control"
+            id="inputToken"
+            aria-describedby="tokenHelp"
+          />
+          <small id="tokenHelp" class="form-text text-muted"
+            >Token provided by the Gotify server is required.</small
+          >
+        </div>
+        <div class="form-group">
+          <label for="inputName">Application name</label>
+          <input type="text" placeholder="Application name" class="form-control" id="inputName"
+            aria-describedby="nameHelp" />
+          <small id="nameHelp" class="form-text text-muted">Application name is required, can be anything</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="selectPriority">Default Message Priority</label>
+          <select class="form-control" id="selectPriority">
+            <option>0</option>
+            <option selected>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <small id="priorityHelp" class="form-text text-muted"
+            >Default priority when sending a new message.</small
+          >
+        </div>
+
+        <div class="error-list">
+          <div id="urlError"></div>
+          <div id="tokenError"></div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div id="contLinkCancel">
+            <a
+              id="buttonCancel"
+              class="btn btn-light"
+              href="../manage_applications/manage_applications.html"
+              ><span class="fa fa-times"> </span> Cancel</a
+            >
+          </div>
+
+          <button id="buttonAddAplication" type="submit" class="btn btn-primary">
+            <span id="spanSend"
+              ><i class="fa fa-save" aria-hidden="true"></i> 
+              <span id="spanSendMessage">Create Application</span>
+              
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+    <script src="../vendor/seemple/seemple.js"></script>
+    <script src="../vendor/jquery/jquery-3.5.0.js"></script>
+    <script src="../vendor/popper/popper.js"></script>
+    <script src="../vendor/bootstrap/bootstrap.bundle.js"></script>
+    <script src="./applications.js"></script>
+  </body>
+</html>

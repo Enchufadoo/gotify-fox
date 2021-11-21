@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gotify Fox</title>
+    <title>New Message</title>
     <link rel="stylesheet" href="popup.css" />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css" />
@@ -19,8 +19,10 @@
   <body>
     <div class="popup-body">
       <div class="d-flex justify-content-between">
-        <div>
-          <div class="lead">Gotify Fox</div>
+        <div class="mb-2">
+          <div id="popupTitle" class="lead">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            New Message</div>
         </div>
         <div>
           <!-- <a class="link-menu" href="../templates/templates.html"
@@ -35,18 +37,25 @@
       <div id="settingsMissing" class="hide">
         <div>
           <div class="text-center">
-            Server settings need to be configured.
+            No applications have been configured.
           </div>
           <br />
           <div class="text-center">
-            <a href="../settings/settings.html" class="btn btn-primary"
-              >Server Settings</a
+            <a href="../applications/applications.html" class="btn btn-primary"
+              >Add a new application</a
             >
           </div>
         </div>
       </div>
       <div id="messageArea" class="hide">
         <form>
+          <div class="form-group">
+            <label for="selectApplication">Application</label>
+            <select class="form-control" id="selectApplication">
+              
+            </select>
+          </div>
+          
           <div class="form-group">
             <label for="inputTitle">Message Title</label>
             <input
@@ -56,9 +65,6 @@
               id="inputTitle"
               aria-describedby="titleHelp"
             />
-            <small id="titleHelp" class="form-text text-muted"
-              >Message title is required.</small
-            >
           </div>
           <div class="form-group">
             <label for="inputContent">Message Content</label>
@@ -69,9 +75,7 @@
               id="inputContent"
               aria-describedby="contentHelp"
             />
-            <small id="contentHelp" class="form-text text-muted"
-              >Message content is required.</small
-            >
+            
           </div>
           <div class="form-group">
             <label for="selectPriority">Message Priority</label>
@@ -83,9 +87,7 @@
               <option>4</option>
               <option>5</option>
             </select>
-            <small id="priorityHelp" class="form-text text-muted"
-              >Message priority.</small
-            >
+            
           </div>
           <button id="buttonSend" type="submit" class="btn btn-primary">
             <span id="spanSend"
@@ -111,6 +113,7 @@
     <script src="../vendor/jquery/jquery-3.5.0.js"></script>
     <script src="../vendor/popper/popper.js"></script>
     <script src="../vendor/bootstrap/bootstrap.bundle.js"></script>
+    <script type="module" src="./ApplicationOptionModel.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

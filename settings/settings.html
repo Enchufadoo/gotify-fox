@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gotify Fox Settings</title>
+    <title>Settings</title>
     <link rel="stylesheet" href="settings.css" />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css" />
@@ -19,8 +19,11 @@
   <body>
     <div class="popup-body">
       <div class="d-flex justify-content-between">
-        <div>
-          <p class="lead">Gotify Fox - Settings</p>
+        <div class="mb-2">
+          <p class="lead">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            Settings
+          </p>
         </div>
         <div id="contLinkGoBack">
           <a class="link-menu" href="../popup/popup.html"
@@ -29,67 +32,15 @@
         </div>
       </div>
       <form>
-        <div class="form-group">
-          <label for="inputTitle">Gotify Server URL</label>
-          <input
-            type="text"
-            placeholder="Server Address"
-            class="form-control"
-            id="inputServerUrl"
-            aria-describedby="serverUrlHelp"
-          />
-          <small id="serverUrlHelp" class="form-text text-muted"
-            >Server address is required, including http:// or https://.</small
-          >
-        </div>
-        <div class="form-group">
-          <label for="inputToken">Token</label>
-          <input
-            type="text"
-            placeholder="Private token for this app"
-            class="form-control"
-            id="inputToken"
-            aria-describedby="tokenHelp"
-          />
-          <small id="tokenHelp" class="form-text text-muted"
-            >Token provided by the Gotify server is required.</small
-          >
-        </div>
-        <div class="form-group">
-          <label for="selectPriority">Default Message Priority</label>
-          <select class="form-control" id="selectPriority">
-            <option>0</option>
-            <option selected>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          <small id="priorityHelp" class="form-text text-muted"
-            >Default priority when sending a new message.</small
-          >
-        </div>
-
-        <div class="error-list">
-          <div id="urlError"></div>
-          <div id="tokenError"></div>
-        </div>
-        <div class="d-flex justify-content-between">
-          <div id="contLinkCancel">
-            <a
-              id="buttonCancel"
-              class="btn btn-light"
-              href="../popup/popup.html"
-              ><span class="fa fa-times"> </span> Cancel</a
-            >
+        <div>
+          <h5 class="card-title">Configure applications</h5>
+          <div class="card-text">
+            Add, edit or remove gotify applications.
+          <br />
+          <a href="../manage_applications/manage_applications.html">Manage Applications</a>
           </div>
-
-          <button id="buttonSaveSettings" type="submit" class="btn btn-primary">
-            <span id="spanSend"
-              ><i class="fa fa-save" aria-hidden="true"></i> Save Settings
-            </span>
-          </button>
         </div>
+        <hr />
       </form>
     </div>
     <script src="../vendor/seemple/seemple.js"></script>

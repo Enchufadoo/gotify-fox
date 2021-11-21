@@ -1,0 +1,12 @@
+.application-name {
+  font-size: 14px;
+}
+
+.application-url {
+  font-size: 10px;
+}
+
+#noApplicationsCreated {
+  font-size: 16px;
+  margin: 0 30px;
+}

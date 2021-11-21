@@ -1,0 +1,8 @@
+.invalid-input{
+  border: 1px solid red!important;
+  box-shadow: none!important;
+}
+
+.error-list{
+  height: 50px;
+}

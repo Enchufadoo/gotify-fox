@@ -1,22 +1,11 @@
-
-#buttonSend{
-  transition: all 0.5s!important;
+#buttonSend {
+  transition: all 0.5s !important;
 }
 
-#settingsMissing{
-  
-  font-size: 16px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-#messageArea{
+#messageArea {
   margin-top: 10px;
 }
 
-#errorMessage{
+#errorMessage {
   margin-top: 10px;
 }

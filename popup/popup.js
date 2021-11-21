@@ -1,8 +1,33 @@
+class ApplicationOptionModel extends Seemple.Object {
+  constructor(data, extra, elementIndex) {
+    super(data);
+    this.on('render', () => {
+      this.bindNode({ name: ':sandbox' }, Seemple.binders.html())
+      this.bindNode('optionValue', ':sandbox', Seemple.binders.attr('value'))
+      this.optionValue = elementIndex
+    });
+  }
+}
+
+class ApplicationArray extends Seemple.Array {
+  itemRenderer = '<option>';
+  get Model() { return ApplicationOptionModel }
+  constructor() {
+    // sandbox definition
+    super().bindNode('sandbox', '#selectApplication');
+  }
+};
+
 class Application extends Seemple {
   constructor(settings) {
     super()
     this.sending = false
-    
+
+    this.instantiate('applicationList', ApplicationArray)
+      .bindNode('applicationIndex', '#selectApplication')
+
+    this.applicationList = settings.applications
+    this.applicationIndex = settings.selectedApplicationIndex
 
     /**
      * Receive a message from the background script when the message succeeds or fails
@@ -15,7 +40,6 @@ class Application extends Seemple {
           break
         case "messageError":
           window.setTimeout(() => {
-
             this.sending = false
             this.errorMessage = true
             this.descErrorMessage = message.value
@@ -35,16 +59,15 @@ class Application extends Seemple {
     this.bindNode('settingsMissing', '#settingsMissing', Seemple.binders.className('hide'))
     this.bindNode('errorMessage', '#errorMessage', Seemple.binders.className('hide', false))
     this.bindNode('descErrorMessage', '#descErrorMessage', Seemple.binders.html())
+    this.bindNode('popupTitle', '#popupTitle', Seemple.binders.className('hide', false))
 
-    /**
+    /** 
      * If there are no settings saved don't show the send message popup
      */
-    this.settingsMissing = this.messageArea = typeof settings.url !== 'undefined' && settings.url
-
-    if (typeof settings.priority !== 'undefined') {
-      this.selectPriority = settings.priority
+    this.settingsMissing = this.messageArea = this.popupTitle = settings.applications.length > 0
+    if (this.settingsMissing) {
+      this.selectPriority = settings.applications[this.applicationIndex].priority
     }
-
     /**
      * Show the send button if both fields are fileld
      */
@@ -57,19 +80,29 @@ class Application extends Seemple {
     this.on('click::buttonSend', (event) => {
       event.preventDefault()
       this.errorMessage = false
-      this.sendMessage(this.inputTitle, this.inputContent, this.selectPriority)
+      this.sendMessage(this.applicationIndex, this.inputTitle, this.inputContent, this.selectPriority)
     })
 
     this.on('change:sending', () => {
       this.spanSend = this.spanSending = this.buttonSend = this.sending
     })
+
+    this.on('change:applicationIndex', () => {
+      this.selectPriority = settings.applications[this.applicationIndex].priority
+    })
+    
   }
 
-  sendMessage(title, message, priority) {
+  sendMessage(applicationIndex, title, message, priority) {
     this.sending = true
     return browser.runtime.sendMessage({
       method: "sendMessage",
-      value: { message: message, title: title, priority: priority }
+      value: {
+        message: message,
+        title: title,
+        priority: priority,
+        applicationIndex: applicationIndex
+      }
     })
   }
 }

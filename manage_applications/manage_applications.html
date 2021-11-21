@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Applications</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../vendor/fork-awesome/css/fork-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../vendor/fork-awesome/css/font-awesome-animation.min.css"
+    />
+    <link rel="stylesheet" href="./manage_applications.css" />
+  </head>
+  <body>
+    <div class="popup-body">
+      <div class="d-flex justify-content-between mb-4">
+        <div>
+          <div id="popupTitle" class="lead">
+            <i class="fa fa-list" aria-hidden="true"></i>
+            Manage Applications</div>
+        </div>
+        <div>
+          <a class="link-menu" href="../settings/settings.html"
+            ><span class="fa fa-arrow-left"> </span> Go Back</a
+          >
+        </div>
+      </div>
+      <div class="d-flex justify-content-between flex-column" >
+          <div id="settingsMissing" class="hide">
+            <div>
+              <div class="text-center">
+                No applications have been configured.
+              </div>
+              
+            </div>
+          </div>
+        <div class="mb-5" id="applicationsDiv" style="height: 400px; overflow-y: auto;" >
+        
+        </div>
+        <div>
+          <a href="../applications/applications.html" class="btn btn-primary">Add a new application</a>
+        </div>
+      </div>      
+    </div>
+    <script src="../vendor/seemple/seemple.js"></script>
+    <script src="../vendor/jquery/jquery-3.5.0.js"></script>
+    <script src="../vendor/popper/popper.js"></script>
+    <script src="../vendor/bootstrap/bootstrap.bundle.js"></script>
+    
+    <script src="manage_applications.js"></script>
+  </body>
+</html>
